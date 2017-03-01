@@ -1,0 +1,30 @@
+FORMAT: 1A
+
+# PhotoGalleryServive
+
+A microservice to manage photos on AWS S3.
+version: 1.0
+
+## List all photos [GET /v1/photos]
+
++ Response 200 (application/json)
+
+  [
+    "bucket_url/bucket_name/photos/photo_name.photo_extension",
+    "https://s3-eu-west-1.amazonaws.com/photogallery-service/photos/test.jpg"
+  ]
+
+## Get a signed s3 upload url [GET /v1/url/{name}]
+
++ Response 200 (application/json)
+
+  {
+    "url": "signed-s3-url"
+  }
+
+## Delete [DELETE /v1/photos/{name}]
+
++ Parameters
+  + name (string) - The name of the file on S3.
+
++ Response 200

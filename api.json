@@ -1,0 +1,83 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "PhotoGalleryServive",
+        "version": "",
+        "description": "A microservice to manage photos on AWS S3.\nversion: 1.0"
+    },
+    "paths": {
+        "/v1/photos": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                "bucket_url/bucket_name/photos/photo_name.photo_extension",
+                                "https://s3-eu-west-1.amazonaws.com/photogallery-service/photos/test.jpg"
+                            ]
+                        }
+                    }
+                },
+                "summary": "List all photos",
+                "description": "",
+                "tags": [],
+                "parameters": [],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/v1/url/{name}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "signed-s3-url"
+                            }
+                        }
+                    }
+                },
+                "summary": "Get a signed s3 upload url",
+                "description": "",
+                "tags": [],
+                "parameters": [],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/v1/photos/{name}": {
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Delete",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "The name of the file on S3.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "List all photos": {},
+        "Get a signed s3 upload url": {},
+        "Delete": {}
+    }
+}

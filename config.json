@@ -1,0 +1,6 @@
+{
+  "s3": {
+    "bucketName": "jdekegel",
+    "bucketUrl": "https://s3-eu-central-1.amazonaws.com"
+  }
+}
